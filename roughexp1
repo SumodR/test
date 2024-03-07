@@ -1,0 +1,157 @@
+1. man:-
+	man is the system's manual pager.  Each page argument given to  man  is
+       normally  the  name of a program, utility or function.  The manual page
+       associated with each of these arguments is then found and displayed.  A
+       section,  if  provided, will direct man to look only in that section of
+       the manual.  The default action is to search in all  of  the  available
+       sections  following  a pre-defined order (by default, unless overridden by the
+       SECTION directive in /etc/manpath.config), and to show only the first page found, even if
+       page exists in several sections.
+
+2. ls:-
+	The ls command is used to display a list of content of a directory.
+	Syntax; ls [OPTION]... [FILE]...
+
+	ls -a:		In Linux, hidden files start with . (dot) symbol and they are not visible in the regular directory. The (ls -a) command will enlist the whole list of the current directory including the hidden files.
+	ls -l:		It will show the list in a long list format.
+	ls -lh:		This command will show you the file sizes in human readable format. Size of the 	file is very difficult to read when displayed in terms of byte. The (ls -lh)command will
+	give you the data in terms of Mb, Gb, Tb, etc.
+	ls -lhS: 	If you want to display your files in descending order (highest at the top)
+	according to their size, then you can use (ls -lhS) command.
+	ls -l - -block-size=[SIZE]:	It is used to display the files in a specific size format.
+	Here, in [SIZE] you can assign size according to your requirement.
+	ls -d */:	It is used to display only subdirectories.
+	ls -g or ls -lG:	With this you can exclude column of group information and owner.
+	ls -n:	It is used to print group ID and owner ID instead of their names.
+	ls --color=[VALUE]:	This command is used to print list as colored or discolored.
+	ls -li:	This command prints the index number if file is in the first column.
+	ls -p:	It is used to identify the directory easily by marking the directories with a
+	slash (/) line sign.
+	ls -r:	It is used to print the list in reverse order.
+	ls -R:	It will display the content of the sub-directories also.
+	ls -lX:	It will group the files with same extensions together in the list.
+	ls -lt:	It will sort the list by displaying recently modified filed at top.
+	ls ~:	It gives the contents of home directory.
+	ls ../:	It give the contents of parent directory.
+	ls --version:	It checks the version of ls command.
+
+3. echo:- (geeks4geeks)
+	 echo - display a line of text
+	Syntax;
+        echo [option] [string]
+	Here,
+	[options] = The various options available for modifying the behavior of the `echo` command
+	[string] = It is the string that we want to display.
+
+	Options:-
+	       -n     do not output the trailing newline
+
+	       -e     enable interpretation of backslash escapes
+	
+	       -E     disable interpretation of backslash escapes (default)
+
+	       If -e is in effect, the following sequences are recognized:
+
+	       \\     backslash
+	       \a     alert (BEL)
+	       \b     backspace
+	       \c     produce no further output
+	       \e     escape
+	       \f     form feed
+	       \n     new line
+	       \r     carriage return
+	       \t     horizontal tab
+	       \v     vertical tab
+	       \0NNN  byte with octal value NNN (1 to 3 digits)
+	       \xHH   byte with hexadecimal value HH (1 to 2 digits)
+
+4. read:-
+
+	read command in Linux system is used to read from a file descriptor. Basically, this command read up the total number of bytes from the specified file descriptor into the buffer. If the number or count is zero then this command may detect the errors. But on success, it returns the number of bytes read. Zero indicates the end of the file. If some errors found then it returns -1. 
+Syntax;	read
+eg; 
+echo "what is your name..?";
+read name;
+echo "hello $name"
+
+5.more:-
+	The more command is quite similar to the cat command, as it is used to display the file content in the same way that the cat command does. The only difference between both commands is that, in case of larger files, the more command displays screenful output at a time.
+
+In more command, the following keys are used to scroll the page:
+ENTER key: To scroll down page by line.
+Space bar: To move to the next page.
+b key: To move to the previous page.
+/ key: To search the string.
+
+Syntax:
+    more [options] <file name>  
+
+Options:
+ -d          display help instead of ringing bell
+ -f          count logical rather than screen lines
+ -l          suppress pause after form feed
+ -c          do not scroll, display text and clean line ends
+ -p          do not scroll, clean screen and display text
+ -s          squeeze multiple blank lines into one
+ -u          suppress underlining
+ -<number>   the number of lines per screenful
+ +<number>   display file beginning from line number
+ +/<string>  display file beginning from search string match
+
+6.less:-(javat)
+
+7.cat:-
+	
+	Concatenate FILE(s) to standard output.The cat command is a multi-purpose utility in the Linux system. It can be used to create a file, display content of the file, copy the content of one file to another file, and more.
+
+	Syntax; cat [OPTION]... [FILE]...
+
+  -A, --show-all           equivalent to -vET
+  -b, --number-nonblank    number nonempty output lines, overrides -n
+  -e                       equivalent to -vE
+  -E, --show-ends          display $ at end of each line
+  -n, --number             number all output lines
+  -s, --squeeze-blank      suppress repeated empty output lines
+  -t                       equivalent to -vT
+  -T, --show-tabs          display TAB characters as ^I
+  -u                       (ignored)
+  -v, --show-nonprinting   use ^ and M- notation, except for LFD and TAB
+      --help     display this help and exit
+      --version  output version information and exit
+
+Examples:
+ To create a file, execute it as follows:
+
+    cat > <file name>  
+    // Enter file content  
+
+Press "CTRL+ D" keys to save the file. To display the content of the file, execute it as follows:
+
+    cat <file name>  
+
+8. cd:-
+	The cd command is used to change the current directory.
+	Syntax:
+	    cd <directory name>
+
+9.mkdir:-
+	The mkdir command is used to create a new directory under any directory.
+Usage: mkdir [OPTION]... DIRECTORY...
+Create the DIRECTORY(ies), if they do not already exist.
+
+Syntax:
+    mkdir <directory name>  
+
+10. pwd:-
+	The pwd command is used to display the location of the current working directory.
+Syntax:
+    pwd  
+
+	 Options:
+      -L	print the value of $PWD if it names the current working
+    		directory
+      -P	print the physical directory, without any symbolic links
+    
+    By default, `pwd' behaves as if `-L' were specified.
+
+
