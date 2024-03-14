@@ -437,3 +437,22 @@ mysql> select dept_no,AVG(salary) from Employee where dept_no!='d05' group by de
 +---------+-------------+
 6 rows in set (0.00 sec)
 
+
+
+--new--baaki--
+mv:- geeks.
+
+cp:-The cp command is used to copy a file or directory.
+Syntax:
+To copy in the same directory:    cp <existing file name> <new file name>  
+To copy in a different directory: cp <existing file name> <dir name>  
+cp -r
+Option 'r' with the copy command can be used to copy a directory including all its content from a source directory to the destination directory.
+
+Syntax:    cp -r <sourceDirectory> <destinationDirectory>  
+
+Example:    cp -r library /home/sssit/Documents  
+
+rm stands for remove here. rm command is used to remove objects such as files, directories, symbolic links and so on from the file system like UNIX. To be more precise, rm removes references to objects from the filesystem, where those objects might have had multiple references (for example, a file with two different names). By default, it does not remove directories. This command normally works silently and you should be very careful while running rm command because once you delete the files then you are not able to recover the contents of files and directories.
+ Syntax: rm [OPTION]... FILE...
+baaki in geeks.
