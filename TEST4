@@ -1,0 +1,9 @@
+
+INSERT INTO regions VALUES (1,'Europe'),(2,'Americas'),(3,'Asia'),(4,'Middle East and Africa');
+
+
+/*Data for the table countries */
+INSERT INTO countries(country_id,country_name,region_id) VALUES ('BH','Bahrain',4),('CA','Canada',2),('SL','SriLanka',3),('CN','China',3),('DE','Germany',1),('EG','Egypt',4),('FR','France',1), ('IN','India',3),('UK','United Kingdom',1),('US','United States of America',2);
+
+/*Data for the table locations */
+INSERT INTO locations VALUES (1400,'2014 Rd','26192','Southlake','Texas','US'),(1500,'2011 Interiors Blvd','110001','Firozabad','Delhi','IN'),(1700,'2004 Charade Rd','98199','Seattle','Washington','US'),(1800,'147 Spadina Ave','M5V 2L7','Toronto','Ontario','CA'), (2400,'8204 Arthur St',NULL,'London',NULL,'UK'),(2500,'Magdalen Centre, The Oxford Science Park','OX9 9ZB','Oxford','Oxford','UK'),(2700,'Schwanthalerstr 7031','973','Manama',NULL,'BH');
