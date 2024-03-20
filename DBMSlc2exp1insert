@@ -1,0 +1,51 @@
+/*Data for the table regions */
+
+INSERT INTO regions VALUES (1,'Europe'),(2,'Americas'),(3,'Asia'),(4,'Middle East and Africa');
+
+
+/*Data for the table countries */
+INSERT INTO countries(country_id,country_name,region_id) VALUES ('BH','Bahrain',4),('CA','Canada',2),('SL','SriLanka',3),('CN','China',3),('DE','Germany',1),('EG','Egypt',4),('FR','France',1), ('IN','India',3),('UK','United Kingdom',1),('US','United States of America',2);
+
+/*Data for the table locations */
+INSERT INTO locations VALUES (1400,'2014 Rd','26192','Southlake','Texas','US'),(1500,'2011 Interiors Blvd','110001','Firozabad','Delhi','IN'),(1700,'2004 Charade Rd','98199','Seattle','Washington','US'),(1800,'147 Spadina Ave','M5V 2L7','Toronto','Ontario','CA'), (2400,'8204 Arthur St',NULL,'London',NULL,'UK'),(2500,'Magdalen Centre, The Oxford Science Park','OX9 9ZB','Oxford','Oxford','UK'),(2700,'Schwanthalerstr 7031','973','Manama',NULL,'BH');
+
+
+/*Data for the table jobs */
+
+INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (1,'Manager',8200,26000);
+INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (2,'Accountant',4200.00,9000.00);
+INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (3,'Administration Assistant',3000.00,6000.00);
+INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (4,'President',20000.00,40000.00);
+INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (5,'Analyst',15000.00,30000.00);
+INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (6,'Accountant',4200.00,9000.00);
+INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (7,'Manager',8200.00,16000.00);,4000.00,9000.00);
+INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (8,'Programmer',4000.00,10000.00);
+
+/*Data for the table departments */
+
+INSERT INTO departments(department_id,department_name,location_id) VALUES (1,'Administration',1700),(2,'Marketing',1800), (3,'HR',2400),(4,'IT',1400),(5,'Finance',1700), (6,'Accounting',1700);
+
+
+
+/*Data for the table employees */
+
+INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (100,'Steven','King','steven.king@sqltutorial.org','515.123.4567','1987-06-17',1,24000,NULL,9);
+INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (101,'Neena','Kochhar','neena.kochhar@sqltutorial.org','515.123.4568','1989-09-21',1,23000,100,9);
+INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (102,'Lex','De Haan','lex.de haan@sqltutorial.org','515.123.4569','1993-01-13',5,17000,100,9);
+INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (103,'Alexander','Hunold','alexander.hunold@sqltutorial.org','590.423.4567','1990-01-03',9,9000,101,6);
+INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (104,'Bruce','Ernst','bruce.ernst@sqltutorial.org','590.423.4568','1991-05-21',9,6000,103,6);
+INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (105,'David','Austin','david.austin@sqltutorial.org','590.423.4569','1997-06-25',9,4800,103,6);
+INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (106,'Valli','Pataballa','valli.pataballa@sqltutorial.org','590.423.4560','1998-02-05',9,4800,103,6);
+INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (107,'Diana','Lorentz','diana.lorentz@sqltutorial.org','590.423.5567','1999-02-07',9,20000,103,6);
+INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (108,'Nancy','Greenberg','nancy.greenberg@sqltutorial.org','515.124.4569','1994-08-17',7,12000,101,10);
+INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (109,'Daniel','Faviet','daniel.faviet@sqltutorial.org','515.124.4169','1994-08-16',6,9000,108,10);
+
+
+/*Data for the table dependents */
+
+INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (1,'Penelope','Gietz','Child',206);
+INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (2,'Nick','Higgins','Child',205);
+INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (3,'Ed','Whalen','Child',200);
+INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (4,'Jennifer','King','Child',100);
+INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (5,'Johnny','Kochhar','Child',101);
+
