@@ -1,0 +1,805 @@
+s2mca55@cscc2d78:~$ man cp
+s2mca55@cscc2d78:~$ ls file1
+file1
+s2mca55@cscc2d78:~$ ls -l file1
+-rw-rw-r-- 1 s2mca55 s2mca55 63 Apr  4 11:55 file1
+s2mca55@cscc2d78:~$ ls -l newfile
+-rw-rw-r-- 1 s2mca55 s2mca55 63 Apr  4 11:56 newfile
+s2mca55@cscc2d78:~$ chmod -w newfile
+s2mca55@cscc2d78:~$ ls -l newfile
+-r--r--r-- 1 s2mca55 s2mca55 63 Apr  4 11:56 newfile
+s2mca55@cscc2d78:~$ cat >> newfile
+bash: newfile: Permission denied
+s2mca55@cscc2d78:~$ cp -f file1 newfile
+s2mca55@cscc2d78:~$ cat newfile
+This content is of file1.
+Line1
+Line2
+Line3
+NewLine4
+NewerLine
+s2mca55@cscc2d78:~$ cp -l file1 newfile
+cp: cannot create hard link 'newfile' to 'file1': File exists
+s2mca55@cscc2d78:~$ cp -l -f file1 newfile
+s2mca55@cscc2d78:~$ cat newfile
+This content is of file1.
+Line1
+Line2
+Line3
+NewLine4
+NewerLine
+s2mca55@cscc2d78:~$ cp -l file1 newfile
+s2mca55@cscc2d78:~$ cat newfile
+This content is of file1.
+Line1
+Line2
+Line3
+NewLine4
+NewerLine
+s2mca55@cscc2d78:~$ ln -s file1 newfile
+ln: failed to create symbolic link 'newfile': File exists
+s2mca55@cscc2d78:~$ ln -s-f file1 newfile
+ln: invalid option -- '-'
+Try 'ln --help' for more information.
+s2mca55@cscc2d78:~$ ln -s -f file1 newfile
+s2mca55@cscc2d78:~$ cat newfile
+This content is of file1.
+Line1
+Line2
+Line3
+NewLine4
+NewerLine
+s2mca55@cscc2d78:~$ man ln
+s2mca55@cscc2d78:~$ man ln
+s2mca55@cscc2d78:~$ ln -f file1 newfile
+s2mca55@cscc2d78:~$ cat newfile
+This content is of file1.
+Line1
+Line2
+Line3
+NewLine4
+NewerLine
+s2mca55@cscc2d78:~$ ln -f file1 newfile
+s2mca55@cscc2d78:~$ cat newfile
+This content is of file1.
+Line1
+Line2
+Line3
+NewLine4
+NewerLine
+s2mca55@cscc2d78:~$ ln -f file1 newfile
+s2mca55@cscc2d78:~$ ln -s file1 newfile
+ln: failed to create symbolic link 'newfile': File exists
+s2mca55@cscc2d78:~$ ln -s -f  file1 newfile
+s2mca55@cscc2d78:~$ cat newfile
+This content is of file1.
+Line1
+Line2
+Line3
+NewLine4
+NewerLine
+s2mca55@cscc2d78:~$ cd dirs
+s2mca55@cscc2d78:~/dirs$ cp -R dir1 dir5
+s2mca55@cscc2d78:~/dirs$ ls
+ dir1   dir5   roughexp1  's us..nWe are starting Shell Scripting""'  'tarting Shell Scripting"'   test1
+s2mca55@cscc2d78:~/dirs$ ls -r dir5
+file1  dir4  dir2
+s2mca55@cscc2d78:~/dirs$ ls -R dir5
+dir5:
+dir2  dir4  file1
+
+dir5/dir2:
+dir3  file2
+
+dir5/dir2/dir3:
+file3
+
+dir5/dir4:
+file4
+s2mca55@cscc2d78:~/dirs$ mkdir dir1/dir6
+s2mca55@cscc2d78:~/dirs$ ls
+ dir1   dir5   roughexp1  's us..nWe are starting Shell Scripting""'  'tarting Shell Scripting"'   test1
+s2mca55@cscc2d78:~/dirs$ ls dir1
+dir2  dir4  dir6  file1
+s2mca55@cscc2d78:~/dirs$ man mv
+s2mca55@cscc2d78:~/dirs$ 
+s2mca55@cscc2d78:~/dirs$ mv dir5 dir1/dir6
+s2mca55@cscc2d78:~/dirs$ ls dir6
+ls: cannot access 'dir6': No such file or directory
+s2mca55@cscc2d78:~/dirs$ ls dir1/dir6
+dir5
+s2mca55@cscc2d78:~/dirs$ man mv
+s2mca55@cscc2d78:~/dirs$ mv dir5* dir1/dir6
+s2mca55@cscc2d78:~/dirs$ ls dir1/dir6
+dir5
+s2mca55@cscc2d78:~/dirs$ man mv
+s2mca55@cscc2d78:~/dirs$ mv dir5/* dir1/dir6
+s2mca55@cscc2d78:~/dirs$ ls dir1/dir6
+dir2  dir4  file1
+s2mca55@cscc2d78:~/dirs$ ls dir6
+ls: cannot access 'dir6': No such file or directory
+s2mca55@cscc2d78:~/dirs$ ls dir1/dir6
+dir2  dir4  efile
+s2mca55@cscc2d78:~/dirs$ s2mca55@cscc2d78:~/dirs$ mv dir5/* dir1/dir6
+bash: s2mca55@cscc2d78:~/dirs$: No such file or directory
+s2mca55@cscc2d78:~/dirs$ s2mca55@cscc2d78:~/dirs$ ls dir1/dir6
+bash: s2mca55@cscc2d78:~/dirs$: No such file or directory
+s2mca55@cscc2d78:~/dirs$ man rm
+s2mca55@cscc2d78:~/dirs$ rm --help
+Usage: rm [OPTION]... [FILE]...
+Remove (unlink) the FILE(s).
+
+  -f, --force           ignore nonexistent files and arguments, never prompt
+  -i                    prompt before every removal
+  -I                    prompt once before removing more than three files, or
+                          when removing recursively; less intrusive than -i,
+                          while still giving protection against most mistakes
+      --interactive[=WHEN]  prompt according to WHEN: never, once (-I), or
+                          always (-i); without WHEN, prompt always
+      --one-file-system  when removing a hierarchy recursively, skip any
+                          directory that is on a file system different from
+                          that of the corresponding command line argument
+      --no-preserve-root  do not treat '/' specially
+      --preserve-root   do not remove '/' (default)
+  -r, -R, --recursive   remove directories and their contents recursively
+  -d, --dir             remove empty directories
+  -v, --verbose         explain what is being done
+      --help     display this help and exit
+      --version  output version information and exit
+
+By default, rm does not remove directories.  Use the --recursive (-r or -R)
+option to remove each listed directory, too, along with all of its contents.
+
+To remove a file whose name starts with a '-', for example '-foo',
+use one of these commands:
+  rm -- -foo
+
+  rm ./-foo
+
+Note that if you use rm to remove a file, it might be possible to recover
+some of its contents, given sufficient expertise and/or time.  For greater
+assurance that the contents are truly unrecoverable, consider using shred.
+
+GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+Full documentation at: <http://www.gnu.org/software/coreutils/rm>
+or available locally via: info '(coreutils) rm invocation'
+s2mca55@cscc2d78:~/dirs$ rm dir1/dir6/[aeiou]*
+s2mca55@cscc2d78:~/dirs$ rm dir1/dir6/[aeiou]*
+s2mca55@cscc2d78:~/dirs$ rm dir1/dir6/[aeiou]*
+rm: cannot remove 'dir1/dir6/[aeiou]*': No such file or directory
+s2mca55@cscc2d78:~/dirs$ rm dir1/dir6/[aeiou:uppercase]*
+rm: cannot remove 'dir1/dir6/[aeiou:uppercase]*': No such file or directory
+s2mca55@cscc2d78:~/dirs$ rm dir1/dir6/[aeiou[:upper:]]*
+s2mca55@cscc2d78:~/dirs$ rm dir1/dir6/[aeiou[:upper:]]*
+s2mca55@cscc2d78:~/dirs$ rm dir1/dir6/[3:]*
+rm: cannot remove 'dir1/dir6/[3:]*': No such file or directory
+s2mca55@cscc2d78:~/dirs$ rm dir1/dir6/[[3:]]*
+rm: cannot remove 'dir1/dir6/[[3:]]*': No such file or directory
+s2mca55@cscc2d78:~/dirs$ rm dir1/dir6/[[:3:]]*
+rm: cannot remove 'dir1/dir6/[[:3:]]*': No such file or directory
+s2mca55@cscc2d78:~/dirs$ rm dir1/dir6/[??*]*
+rm: cannot remove 'dir1/dir6/[??*]*': No such file or directory
+s2mca55@cscc2d78:~/dirs$ rm dir1/dir6/??8
+rm: cannot remove 'dir1/dir6/??8': No such file or directory
+s2mca55@cscc2d78:~/dirs$ rm dir1/dir6/??*
+rm: cannot remove 'dir1/dir6/dir2': Is a directory
+rm: cannot remove 'dir1/dir6/dir4': Is a directory
+s2mca55@cscc2d78:~/dirs$ rm dir1/dir6/'??*'
+rm: cannot remove 'dir1/dir6/??*': No such file or directory
+s2mca55@cscc2d78:~/dirs$ rm dir1/dir6/ '??*'
+rm: cannot remove 'dir1/dir6/': Is a directory
+rm: cannot remove '??*': No such file or directory
+s2mca55@cscc2d78:~/dirs$ rm dir1/dir6/???*
+rm: cannot remove 'dir1/dir6/dir2': Is a directory
+rm: cannot remove 'dir1/dir6/dir4': Is a directory
+s2mca55@cscc2d78:~/dirs$ ls -a
+ .   ..   dir1   dir5   roughexp1  's us..nWe are starting Shell Scripting""'  'tarting Shell Scripting"'   test1
+s2mca55@cscc2d78:~/dirs$ ls -a
+.  ..  dir1  dir5  roughexp1  shlscrpt  starting  test1
+s2mca55@cscc2d78:~/dirs$ ls 
+dir1  dir5  roughexp1  shlscrpt  starting  test1
+s2mca55@cscc2d78:~/dirs$ rm --help
+Usage: rm [OPTION]... [FILE]...
+Remove (unlink) the FILE(s).
+
+  -f, --force           ignore nonexistent files and arguments, never prompt
+  -i                    prompt before every removal
+  -I                    prompt once before removing more than three files, or
+                          when removing recursively; less intrusive than -i,
+                          while still giving protection against most mistakes
+      --interactive[=WHEN]  prompt according to WHEN: never, once (-I), or
+                          always (-i); without WHEN, prompt always
+      --one-file-system  when removing a hierarchy recursively, skip any
+                          directory that is on a file system different from
+                          that of the corresponding command line argument
+      --no-preserve-root  do not treat '/' specially
+      --preserve-root   do not remove '/' (default)
+  -r, -R, --recursive   remove directories and their contents recursively
+  -d, --dir             remove empty directories
+  -v, --verbose         explain what is being done
+      --help     display this help and exit
+      --version  output version information and exit
+
+By default, rm does not remove directories.  Use the --recursive (-r or -R)
+option to remove each listed directory, too, along with all of its contents.
+
+To remove a file whose name starts with a '-', for example '-foo',
+use one of these commands:
+  rm -- -foo
+
+  rm ./-foo
+
+Note that if you use rm to remove a file, it might be possible to recover
+some of its contents, given sufficient expertise and/or time.  For greater
+assurance that the contents are truly unrecoverable, consider using shred.
+
+GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+Full documentation at: <http://www.gnu.org/software/coreutils/rm>
+or available locally via: info '(coreutils) rm invocation'
+s2mca55@cscc2d78:~/dirs$ ls -a dir1/dir6
+.  ..  dir2  dir4  .hidden1
+s2mca55@cscc2d78:~/dirs$ rm dir1/dir6/.*
+rm: cannot remove 'dir1/dir6/.': Is a directory
+rm: cannot remove 'dir1/dir6/..': Is a directory
+s2mca55@cscc2d78:~/dirs$ ls -a dir1/dir6
+.  ..  dir2  dir4
+s2mca55@cscc2d78:~/dirs$ ls -a dir1/dir6
+.  ..  dir2  dir4  .hiddenfile  .hiddenfolder
+s2mca55@cscc2d78:~/dirs$ rm dir1/dir6/.*
+rm: cannot remove 'dir1/dir6/.': Is a directory
+rm: cannot remove 'dir1/dir6/..': Is a directory
+rm: cannot remove 'dir1/dir6/.hiddenfolder': Is a directory
+s2mca55@cscc2d78:~/dirs$ ls -a dir1/dir6
+.  ..  dir2  dir4  .hiddenfolder
+s2mca55@cscc2d78:~/dirs$ ls -a dir1/dir6
+.  ..  dir2  dir4  .hiddenfile  .hiddenfolder
+s2mca55@cscc2d78:~/dirs$ rm -rf dir1/dir6/.*
+rm: refusing to remove '.' or '..' directory: skipping 'dir1/dir6/.'
+rm: refusing to remove '.' or '..' directory: skipping 'dir1/dir6/..'
+s2mca55@cscc2d78:~/dirs$ ls -a dir1/dir6
+.  ..  dir2  dir4
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+
+[1]+  Stopped                 vim testfile1
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+
+[2]+  Stopped                 vim testfile1
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+s2mca55@cscc2d78:~/dirs$ ls -a
+.  ..  dir1  dir5  roughexp1  shlscrpt  starting  test1  .testfile1.swo  .testfile1.swp
+s2mca55@cscc2d78:~/dirs$ rm .*
+rm: cannot remove '.': Is a directory
+rm: cannot remove '..': Is a directory
+s2mca55@cscc2d78:~/dirs$ ls -a
+.  ..  dir1  dir5  roughexp1  shlscrpt  starting  test1
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+
+[3]+  Stopped                 vim testfile1
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+s2mca55@cscc2d78:~/dirs$ vim testfile1.swp
+
+[4]+  Stopped                 vim testfile1.swp
+s2mca55@cscc2d78:~/dirs$ vim testfile1.swp
+
+[5]+  Stopped                 vim testfile1.swp
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+s2mca55@cscc2d78:~/dirs$ 
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+s2mca55@cscc2d78:~/dirs$ 
+s2mca55@cscc2d78:~/dirs$ 
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+
+[6]+  Stopped                 vim testfile1
+s2mca55@cscc2d78:~/dirs$ vim testfile1
+s2mca55@cscc2d78:~/dirs$ vim testfile2
+s2mca55@cscc2d78:~/dirs$ vim testfile3
+s2mca55@cscc2d78:~/dirs$ ls -a testfile3
+testfile3
+s2mca55@cscc2d78:~/dirs$ ls -l testfile3
+-rw-rw-r-- 1 s2mca55 s2mca55 20 Apr 11 10:47 testfile3
+s2mca55@cscc2d78:~/dirs$ ls -l testfile2
+-rw-rw-r-- 1 s2mca55 s2mca55 20 Apr 11 10:47 testfile2
+s2mca55@cscc2d78:~/dirs$ chmod o+r testfile2
+s2mca55@cscc2d78:~/dirs$ ls -l testfile2
+-rw-rw-r-- 1 s2mca55 s2mca55 20 Apr 11 10:47 testfile2
+s2mca55@cscc2d78:~/dirs$ chmod --hel[p
+chmod: unrecognized option '--hel[p'
+Try 'chmod --help' for more information.
+s2mca55@cscc2d78:~/dirs$ chmod --help
+Usage: chmod [OPTION]... MODE[,MODE]... FILE...
+  or:  chmod [OPTION]... OCTAL-MODE FILE...
+  or:  chmod [OPTION]... --reference=RFILE FILE...
+Change the mode of each FILE to MODE.
+With --reference, change the mode of each FILE to that of RFILE.
+
+  -c, --changes          like verbose but report only when a change is made
+  -f, --silent, --quiet  suppress most error messages
+  -v, --verbose          output a diagnostic for every file processed
+      --no-preserve-root  do not treat '/' specially (the default)
+      --preserve-root    fail to operate recursively on '/'
+      --reference=RFILE  use RFILE's mode instead of MODE values
+  -R, --recursive        change files and directories recursively
+      --help     display this help and exit
+      --version  output version information and exit
+
+Each MODE is of the form '[ugoa]*([-+=]([rwxXst]*|[ugo]))+|[-+=][0-7]+'.
+
+GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+Full documentation at: <http://www.gnu.org/software/coreutils/chmod>
+or available locally via: info '(coreutils) chmod invocation'
+s2mca55@cscc2d78:~/dirs$ chmod u-w testfile2
+s2mca55@cscc2d78:~/dirs$ ls -l testfile2
+-r--rw-r-- 1 s2mca55 s2mca55 20 Apr 11 10:47 testfile2
+s2mca55@cscc2d78:~/dirs$ chmod g-*+x testfile2
+chmod: invalid mode: ‘g-*+x’
+Try 'chmod --help' for more information.
+s2mca55@cscc2d78:~/dirs$ chmod g-r+x testfile2
+s2mca55@cscc2d78:~/dirs$ ls -l testfile2
+-r---wxr-- 1 s2mca55 s2mca55 20 Apr 11 10:47 testfile2
+s2mca55@cscc2d78:~/dirs$ vim testfile2
+s2mca55@cscc2d78:~/dirs$ ls -l testfile2
+-rw-rw-r-- 1 s2mca55 s2mca55 18 Apr 11 11:00 testfile2
+s2mca55@cscc2d78:~/dirs$ chmod u-w testfile2
+s2mca55@cscc2d78:~/dirs$ ls -l testfile2
+-r--rw-r-- 1 s2mca55 s2mca55 18 Apr 11 11:00 testfile2
+s2mca55@cscc2d78:~/dirs$ chmod g -rw+x testfile2
+chmod: cannot access 'g': No such file or directory
+s2mca55@cscc2d78:~/dirs$ chmod g-rw+x testfile2
+s2mca55@cscc2d78:~/dirs$ ls -l testfile2
+---x--x--x 1 s2mca55 s2mca55 18 Apr 11 11:00 testfile2
+s2mca55@cscc2d78:~/dirs$ chmod u+r g+rw o+r testfile2
+chmod: cannot access 'g+rw': No such file or directory
+chmod: cannot access 'o+r': No such file or directory
+s2mca55@cscc2d78:~/dirs$ chmod u+r  testfile2
+s2mca55@cscc2d78:~/dirs$ chmod g+rw testfile2
+s2mca55@cscc2d78:~/dirs$ chmod u+r g+rw o+r testfile2
+chmod: cannot access 'g+rw': No such file or directory
+chmod: cannot access 'o+r': No such file or directory
+s2mca55@cscc2d78:~/dirs$ ls -l testfile2
+-r-xrwx--x 1 s2mca55 s2mca55 18 Apr 11 11:00 testfile2
+s2mca55@cscc2d78:~/dirs$ chmod g-x testfile2
+s2mca55@cscc2d78:~/dirs$ ls -l testfile2
+-r-xrw---x 1 s2mca55 s2mca55 18 Apr 11 11:00 testfile2
+s2mca55@cscc2d78:~/dirs$ chmod -x testfile2
+s2mca55@cscc2d78:~/dirs$ ls -l testfile2
+-r--rw---- 1 s2mca55 s2mca55 18 Apr 11 11:00 testfile2
+s2mca55@cscc2d78:~/dirs$ chmod o+r testfile2
+s2mca55@cscc2d78:~/dirs$ ls -l testfile2
+-r--rw-r-- 1 s2mca55 s2mca55 18 Apr 11 11:00 testfile2
+s2mca55@cscc2d78:~/dirs$ chmod g-rw testfile2
+s2mca55@cscc2d78:~/dirs$ chmod g testfile2
+chmod: invalid mode: ‘g’
+Try 'chmod --help' for more information.
+s2mca55@cscc2d78:~/dirs$ chmod g+x testfile2
+s2mca55@cscc2d78:~/dirs$ ls -l testfile2
+-r----xr-- 1 s2mca55 s2mca55 18 Apr 11 11:00 testfile2
+s2mca55@cscc2d78:~/dirs$ chmod u+w testfile2
+s2mca55@cscc2d78:~/dirs$ chmod o-r testfile2
+s2mca55@cscc2d78:~/dirs$ chmod g-a testfile2
+chmod: invalid mode: ‘g-a’
+Try 'chmod --help' for more information.
+s2mca55@cscc2d78:~/dirs$ chmod g-x testfile2
+s2mca55@cscc2d78:~/dirs$ chmod g+r testfile2
+s2mca55@cscc2d78:~/dirs$ ls -l testfile2
+-rw-r----- 1 s2mca55 s2mca55 18 Apr 11 11:00 testfile2
+s2mca55@cscc2d78:~/dirs$ chmod a+rw testfile2
+s2mca55@cscc2d78:~/dirs$ ls -l testfile2
+-rw-rw-rw- 1 s2mca55 s2mca55 18 Apr 11 11:00 testfile2
+s2mca55@cscc2d78:~/dirs$ chmod a+24 testfile2
+chmod: invalid mode: ‘a+24’
+Try 'chmod --help' for more information.
+s2mca55@cscc2d78:~/dirs$ chmod 666 testfile2
+s2mca55@cscc2d78:~/dirs$ ls -l testfile3
+-rw-rw-r-- 1 s2mca55 s2mca55 20 Apr 11 10:47 testfile3
+s2mca55@cscc2d78:~/dirs$ chmod 666 testfile3
+s2mca55@cscc2d78:~/dirs$ ls -l testfile3
+-rw-rw-rw- 1 s2mca55 s2mca55 20 Apr 11 10:47 testfile3
+s2mca55@cscc2d78:~/dirs$ chmod 754 testfile3
+s2mca55@cscc2d78:~/dirs$ ls -l testfile3
+-rwxr-xr-- 1 s2mca55 s2mca55 20 Apr 11 10:47 testfile3
+s2mca55@cscc2d78:~/dirs$ chmod --reference = testfile3 testfile2
+chmod: failed to get attributes of '=': No such file or directory
+s2mca55@cscc2d78:~/dirs$ chmod --help
+Usage: chmod [OPTION]... MODE[,MODE]... FILE...
+  or:  chmod [OPTION]... OCTAL-MODE FILE...
+  or:  chmod [OPTION]... --reference=RFILE FILE...
+Change the mode of each FILE to MODE.
+With --reference, change the mode of each FILE to that of RFILE.
+
+  -c, --changes          like verbose but report only when a change is made
+  -f, --silent, --quiet  suppress most error messages
+  -v, --verbose          output a diagnostic for every file processed
+      --no-preserve-root  do not treat '/' specially (the default)
+      --preserve-root    fail to operate recursively on '/'
+      --reference=RFILE  use RFILE's mode instead of MODE values
+  -R, --recursive        change files and directories recursively
+      --help     display this help and exit
+      --version  output version information and exit
+
+Each MODE is of the form '[ugoa]*([-+=]([rwxXst]*|[ugo]))+|[-+=][0-7]+'.
+
+GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+Full documentation at: <http://www.gnu.org/software/coreutils/chmod>
+or available locally via: info '(coreutils) chmod invocation'
+s2mca55@cscc2d78:~/dirs$ chmod --reference=testfile3 testfile2
+s2mca55@cscc2d78:~/dirs$ ls -l testfile2
+-rwxr-xr-- 1 s2mca55 s2mca55 18 Apr 11 11:00 testfile2
+s2mca55@cscc2d78:~/dirs$ cd..
+cd..: command not found
+s2mca55@cscc2d78:~/dirs$ cd ..
+s2mca55@cscc2d78:~$ head cat/etc/passwd
+head: cannot open 'cat/etc/passwd' for reading: No such file or directory
+s2mca55@cscc2d78:~$ head cat /etc/passwd
+head: cannot open 'cat' for reading: No such file or directory
+==> /etc/passwd <==
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+s2mca55@cscc2d78:~$ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:100:102:systemd Time Synchronization,,,:/run/systemd:/bin/false
+systemd-network:x:101:103:systemd Network Management,,,:/run/systemd/netif:/bin/false
+systemd-resolve:x:102:104:systemd Resolver,,,:/run/systemd/resolve:/bin/false
+syslog:x:104:108::/home/syslog:/bin/false
+_apt:x:105:65534::/nonexistent:/bin/false
+messagebus:x:106:110::/var/run/dbus:/bin/false
+uuidd:x:107:111::/run/uuidd:/bin/false
+lightdm:x:108:116:Light Display Manager:/var/lib/lightdm:/bin/false
+whoopsie:x:109:118::/nonexistent:/bin/false
+avahi-autoipd:x:110:119:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/bin/false
+avahi:x:111:120:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/bin/false
+dnsmasq:x:112:65534:dnsmasq,,,:/var/lib/misc:/bin/false
+colord:x:113:123:colord colour management daemon,,,:/var/lib/colord:/bin/false
+speech-dispatcher:x:114:29:Speech Dispatcher,,,:/var/run/speech-dispatcher:/bin/false
+hplip:x:115:7:HPLIP system user,,,:/var/run/hplip:/bin/false
+kernoops:x:116:65534:Kernel Oops Tracking Daemon,,,:/:/bin/false
+pulse:x:117:124:PulseAudio daemon,,,:/var/run/pulse:/bin/false
+rtkit:x:118:126:RealtimeKit,,,:/proc:/bin/false
+saned:x:119:127::/var/lib/saned:/bin/false
+usbmux:x:120:46:usbmux daemon,,,:/var/lib/usbmux:/bin/false
+ccn:x:1001:1001:CCN,,,:/home/ccn:/bin/bash
+guest-yvtwkn:x:999:999:Guest:/tmp/guest-yvtwkn:/bin/bash
+guest-fsrtzl:x:998:998:Guest:/tmp/guest-fsrtzl:/bin/bash
+guest-ul97zl:x:997:997:Guest:/tmp/guest-ul97zl:/bin/bash
+guest-wevctz:x:996:996:Guest:/tmp/guest-wevctz:/bin/bash
+sshd:x:121:65534::/var/run/sshd:/usr/sbin/nologin
+guest-glykpe:x:995:995:Guest:/tmp/guest-glykpe:/bin/bash
+cups-pk-helper:x:103:115:user for cups-pk-helper service,,,:/home/cups-pk-helper:/usr/sbin/nologin
+geoclue:x:122:105::/var/lib/geoclue:/usr/sbin/nologin
+gnome-initial-setup:x:123:65534::/run/gnome-initial-setup/:/bin/false
+gdm:x:124:129:Gnome Display Manager:/var/lib/gdm3:/bin/false
+mysql:x:125:130:MySQL Server,,,:/nonexistent:/bin/false
+psc:x:1003:1003:,,,:/home/psc:/bin/bash
+tpcexam:x:1007:1007:,,,:/home/tpcexam:/bin/bash
+exam23:x:1008:1008:,,,:/home/exam23:/bin/bash
+exam:x:1009:1009:,,,:/home/exam:/bin/bash
+arunmca18:x:1000:1000:ARUN BM,,,:/home/arunmca18:/bin/bash
+s2b09:x:1002:1002:,,,:/home/s2b09:/bin/bash
+s2e59:x:1004:1004:,,,:/home/s2e59:/bin/bash
+s2mca55:x:1005:1005:,,,:/home/s2mca55:/bin/bash
+s2a25:x:1006:1006:Gowri Nandana A V,,,:/home/s2a25:/bin/bash
+s2e17:x:1010:1010:,,,:/home/s2e17:/bin/bash
+s2mca55@cscc2d78:~$ cat /etc/passwd | head -n 12
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+s2mca55@cscc2d78:~$ cat /etc/passwd | head -x 7
+head: invalid option -- 'x'
+Try 'head --help' for more information.
+s2mca55@cscc2d78:~$ head --help
+Usage: head [OPTION]... [FILE]...
+Print the first 10 lines of each FILE to standard output.
+With more than one FILE, precede each with a header giving the file name.
+
+With no FILE, or when FILE is -, read standard input.
+
+Mandatory arguments to long options are mandatory for short options too.
+  -c, --bytes=[-]NUM       print the first NUM bytes of each file;
+                             with the leading '-', print all but the last
+                             NUM bytes of each file
+  -n, --lines=[-]NUM       print the first NUM lines instead of the first 10;
+                             with the leading '-', print all but the last
+                             NUM lines of each file
+  -q, --quiet, --silent    never print headers giving file names
+  -v, --verbose            always print headers giving file names
+  -z, --zero-terminated    line delimiter is NUL, not newline
+      --help     display this help and exit
+      --version  output version information and exit
+
+NUM may have a multiplier suffix:
+b 512, kB 1000, K 1024, MB 1000*1000, M 1024*1024,
+GB 1000*1000*1000, G 1024*1024*1024, and so on for T, P, E, Z, Y.
+
+GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+Full documentation at: <http://www.gnu.org/software/coreutils/head>
+or available locally via: info '(coreutils) head invocation'
+s2mca55@cscc2d78:~$ cat /etc/passwd | tail -n 7
+exam:x:1009:1009:,,,:/home/exam:/bin/bash
+arunmca18:x:1000:1000:ARUN BM,,,:/home/arunmca18:/bin/bash
+s2b09:x:1002:1002:,,,:/home/s2b09:/bin/bash
+s2e59:x:1004:1004:,,,:/home/s2e59:/bin/bash
+s2mca55:x:1005:1005:,,,:/home/s2mca55:/bin/bash
+s2a25:x:1006:1006:Gowri Nandana A V,,,:/home/s2a25:/bin/bash
+s2e17:x:1010:1010:,,,:/home/s2e17:/bin/bash
+s2mca55@cscc2d78:~$ cat /etc/passwd | head -n -3
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:100:102:systemd Time Synchronization,,,:/run/systemd:/bin/false
+systemd-network:x:101:103:systemd Network Management,,,:/run/systemd/netif:/bin/false
+systemd-resolve:x:102:104:systemd Resolver,,,:/run/systemd/resolve:/bin/false
+syslog:x:104:108::/home/syslog:/bin/false
+_apt:x:105:65534::/nonexistent:/bin/false
+messagebus:x:106:110::/var/run/dbus:/bin/false
+uuidd:x:107:111::/run/uuidd:/bin/false
+lightdm:x:108:116:Light Display Manager:/var/lib/lightdm:/bin/false
+whoopsie:x:109:118::/nonexistent:/bin/false
+avahi-autoipd:x:110:119:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/bin/false
+avahi:x:111:120:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/bin/false
+dnsmasq:x:112:65534:dnsmasq,,,:/var/lib/misc:/bin/false
+colord:x:113:123:colord colour management daemon,,,:/var/lib/colord:/bin/false
+speech-dispatcher:x:114:29:Speech Dispatcher,,,:/var/run/speech-dispatcher:/bin/false
+hplip:x:115:7:HPLIP system user,,,:/var/run/hplip:/bin/false
+kernoops:x:116:65534:Kernel Oops Tracking Daemon,,,:/:/bin/false
+pulse:x:117:124:PulseAudio daemon,,,:/var/run/pulse:/bin/false
+rtkit:x:118:126:RealtimeKit,,,:/proc:/bin/false
+saned:x:119:127::/var/lib/saned:/bin/false
+usbmux:x:120:46:usbmux daemon,,,:/var/lib/usbmux:/bin/false
+ccn:x:1001:1001:CCN,,,:/home/ccn:/bin/bash
+guest-yvtwkn:x:999:999:Guest:/tmp/guest-yvtwkn:/bin/bash
+guest-fsrtzl:x:998:998:Guest:/tmp/guest-fsrtzl:/bin/bash
+guest-ul97zl:x:997:997:Guest:/tmp/guest-ul97zl:/bin/bash
+guest-wevctz:x:996:996:Guest:/tmp/guest-wevctz:/bin/bash
+sshd:x:121:65534::/var/run/sshd:/usr/sbin/nologin
+guest-glykpe:x:995:995:Guest:/tmp/guest-glykpe:/bin/bash
+cups-pk-helper:x:103:115:user for cups-pk-helper service,,,:/home/cups-pk-helper:/usr/sbin/nologin
+geoclue:x:122:105::/var/lib/geoclue:/usr/sbin/nologin
+gnome-initial-setup:x:123:65534::/run/gnome-initial-setup/:/bin/false
+gdm:x:124:129:Gnome Display Manager:/var/lib/gdm3:/bin/false
+mysql:x:125:130:MySQL Server,,,:/nonexistent:/bin/false
+psc:x:1003:1003:,,,:/home/psc:/bin/bash
+tpcexam:x:1007:1007:,,,:/home/tpcexam:/bin/bash
+exam23:x:1008:1008:,,,:/home/exam23:/bin/bash
+exam:x:1009:1009:,,,:/home/exam:/bin/bash
+arunmca18:x:1000:1000:ARUN BM,,,:/home/arunmca18:/bin/bash
+s2b09:x:1002:1002:,,,:/home/s2b09:/bin/bash
+s2e59:x:1004:1004:,,,:/home/s2e59:/bin/bash
+s2mca55@cscc2d78:~$ cat /etc/passwd | tail -n -3
+s2mca55:x:1005:1005:,,,:/home/s2mca55:/bin/bash
+s2a25:x:1006:1006:Gowri Nandana A V,,,:/home/s2a25:/bin/bash
+s2e17:x:1010:1010:,,,:/home/s2e17:/bin/bash
+s2mca55@cscc2d78:~$ cat /etc/passwd | tail -n 3
+s2mca55:x:1005:1005:,,,:/home/s2mca55:/bin/bash
+s2a25:x:1006:1006:Gowri Nandana A V,,,:/home/s2a25:/bin/bash
+s2e17:x:1010:1010:,,,:/home/s2e17:/bin/bash
+s2mca55@cscc2d78:~$ cat /etc/passwd | tail -n +3
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:100:102:systemd Time Synchronization,,,:/run/systemd:/bin/false
+systemd-network:x:101:103:systemd Network Management,,,:/run/systemd/netif:/bin/false
+systemd-resolve:x:102:104:systemd Resolver,,,:/run/systemd/resolve:/bin/false
+syslog:x:104:108::/home/syslog:/bin/false
+_apt:x:105:65534::/nonexistent:/bin/false
+messagebus:x:106:110::/var/run/dbus:/bin/false
+uuidd:x:107:111::/run/uuidd:/bin/false
+lightdm:x:108:116:Light Display Manager:/var/lib/lightdm:/bin/false
+whoopsie:x:109:118::/nonexistent:/bin/false
+avahi-autoipd:x:110:119:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/bin/false
+avahi:x:111:120:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/bin/false
+dnsmasq:x:112:65534:dnsmasq,,,:/var/lib/misc:/bin/false
+colord:x:113:123:colord colour management daemon,,,:/var/lib/colord:/bin/false
+speech-dispatcher:x:114:29:Speech Dispatcher,,,:/var/run/speech-dispatcher:/bin/false
+hplip:x:115:7:HPLIP system user,,,:/var/run/hplip:/bin/false
+kernoops:x:116:65534:Kernel Oops Tracking Daemon,,,:/:/bin/false
+pulse:x:117:124:PulseAudio daemon,,,:/var/run/pulse:/bin/false
+rtkit:x:118:126:RealtimeKit,,,:/proc:/bin/false
+saned:x:119:127::/var/lib/saned:/bin/false
+usbmux:x:120:46:usbmux daemon,,,:/var/lib/usbmux:/bin/false
+ccn:x:1001:1001:CCN,,,:/home/ccn:/bin/bash
+guest-yvtwkn:x:999:999:Guest:/tmp/guest-yvtwkn:/bin/bash
+guest-fsrtzl:x:998:998:Guest:/tmp/guest-fsrtzl:/bin/bash
+guest-ul97zl:x:997:997:Guest:/tmp/guest-ul97zl:/bin/bash
+guest-wevctz:x:996:996:Guest:/tmp/guest-wevctz:/bin/bash
+sshd:x:121:65534::/var/run/sshd:/usr/sbin/nologin
+guest-glykpe:x:995:995:Guest:/tmp/guest-glykpe:/bin/bash
+cups-pk-helper:x:103:115:user for cups-pk-helper service,,,:/home/cups-pk-helper:/usr/sbin/nologin
+geoclue:x:122:105::/var/lib/geoclue:/usr/sbin/nologin
+gnome-initial-setup:x:123:65534::/run/gnome-initial-setup/:/bin/false
+gdm:x:124:129:Gnome Display Manager:/var/lib/gdm3:/bin/false
+mysql:x:125:130:MySQL Server,,,:/nonexistent:/bin/false
+psc:x:1003:1003:,,,:/home/psc:/bin/bash
+tpcexam:x:1007:1007:,,,:/home/tpcexam:/bin/bash
+exam23:x:1008:1008:,,,:/home/exam23:/bin/bash
+exam:x:1009:1009:,,,:/home/exam:/bin/bash
+arunmca18:x:1000:1000:ARUN BM,,,:/home/arunmca18:/bin/bash
+s2b09:x:1002:1002:,,,:/home/s2b09:/bin/bash
+s2e59:x:1004:1004:,,,:/home/s2e59:/bin/bash
+s2mca55:x:1005:1005:,,,:/home/s2mca55:/bin/bash
+s2a25:x:1006:1006:Gowri Nandana A V,,,:/home/s2a25:/bin/bash
+s2e17:x:1010:1010:,,,:/home/s2e17:/bin/bash
+s2mca55@cscc2d78:~$ s2mca55@cscc2d78:~$ cat /etc/passwd | head -n -3
+s2mca55@cscc2d78:~$: command not found
+s2mca55@cscc2d78:~$ s2mca55@cscc2d78:~$ cat /etc/passwd | head -n -5
+s2mca55@cscc2d78:~$: command not found
+s2mca55@cscc2d78:~$ cat /etc/passwd | head -n -5
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:100:102:systemd Time Synchronization,,,:/run/systemd:/bin/false
+systemd-network:x:101:103:systemd Network Management,,,:/run/systemd/netif:/bin/false
+systemd-resolve:x:102:104:systemd Resolver,,,:/run/systemd/resolve:/bin/false
+syslog:x:104:108::/home/syslog:/bin/false
+_apt:x:105:65534::/nonexistent:/bin/false
+messagebus:x:106:110::/var/run/dbus:/bin/false
+uuidd:x:107:111::/run/uuidd:/bin/false
+lightdm:x:108:116:Light Display Manager:/var/lib/lightdm:/bin/false
+whoopsie:x:109:118::/nonexistent:/bin/false
+avahi-autoipd:x:110:119:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/bin/false
+avahi:x:111:120:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/bin/false
+dnsmasq:x:112:65534:dnsmasq,,,:/var/lib/misc:/bin/false
+colord:x:113:123:colord colour management daemon,,,:/var/lib/colord:/bin/false
+speech-dispatcher:x:114:29:Speech Dispatcher,,,:/var/run/speech-dispatcher:/bin/false
+hplip:x:115:7:HPLIP system user,,,:/var/run/hplip:/bin/false
+kernoops:x:116:65534:Kernel Oops Tracking Daemon,,,:/:/bin/false
+pulse:x:117:124:PulseAudio daemon,,,:/var/run/pulse:/bin/false
+rtkit:x:118:126:RealtimeKit,,,:/proc:/bin/false
+saned:x:119:127::/var/lib/saned:/bin/false
+usbmux:x:120:46:usbmux daemon,,,:/var/lib/usbmux:/bin/false
+ccn:x:1001:1001:CCN,,,:/home/ccn:/bin/bash
+guest-yvtwkn:x:999:999:Guest:/tmp/guest-yvtwkn:/bin/bash
+guest-fsrtzl:x:998:998:Guest:/tmp/guest-fsrtzl:/bin/bash
+guest-ul97zl:x:997:997:Guest:/tmp/guest-ul97zl:/bin/bash
+guest-wevctz:x:996:996:Guest:/tmp/guest-wevctz:/bin/bash
+sshd:x:121:65534::/var/run/sshd:/usr/sbin/nologin
+guest-glykpe:x:995:995:Guest:/tmp/guest-glykpe:/bin/bash
+cups-pk-helper:x:103:115:user for cups-pk-helper service,,,:/home/cups-pk-helper:/usr/sbin/nologin
+geoclue:x:122:105::/var/lib/geoclue:/usr/sbin/nologin
+gnome-initial-setup:x:123:65534::/run/gnome-initial-setup/:/bin/false
+gdm:x:124:129:Gnome Display Manager:/var/lib/gdm3:/bin/false
+mysql:x:125:130:MySQL Server,,,:/nonexistent:/bin/false
+psc:x:1003:1003:,,,:/home/psc:/bin/bash
+tpcexam:x:1007:1007:,,,:/home/tpcexam:/bin/bash
+exam23:x:1008:1008:,,,:/home/exam23:/bin/bash
+exam:x:1009:1009:,,,:/home/exam:/bin/bash
+arunmca18:x:1000:1000:ARUN BM,,,:/home/arunmca18:/bin/bash
+s2mca55@cscc2d78:~$ cat /etc/passwd | head -n 9 | tail -n 1
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+s2mca55@cscc2d78:~$ grep "abc" dirs/abcfile
+Lorem ipsum dolor sit amet, co abc nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Sed vulputate mi sit amet mauris commodo quis imperdiet. Laoreet id donec ultrices tincidunt arcu non sodales. Massa placerat duis ultricies abclacus sed turpis. Scelerisque in dictum non consectetur a erat nam at lectus. 
+Proin nibh nisl cabcondimentum id venenatis a condimentum vitae sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien et. 
+Orci a scelerisque purus semper eget duis. Dis parturient montes nascetur ridiculus mus mauris. Vitae justo eget magna fermentum iaculis eu non diam. Id abcaliquet risus feugiat in.
+s2mca55@cscc2d78:~$ grep -v "abc" dirs/abcfile
+Viverra accumsan in nisl nisi scelerisque eu ultrices vitae. Scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt. 
+Dignissim suspendisse in est ante in nibh mauris cursus mattis. Posuere urna nec tincidunt praesent semper feugiat. 
+Eu mi bibendum neque egestas. Nisl nisi scelerisque eu ultrices vitae auctor. Tortor aliquam nulla facilisi cras fermentum odio eu feugiat. 
+At elementum eu facilisis sed odio morbi quis commodo odio. Amet justo donec enim diam vulputate ut pharetra sit. 
+s2mca55@cscc2d78:~$ read X
+^Z
+s2mca55@cscc2d78:~$ read X
+5
+s2mca55@cscc2d78:~$ read Y
+8
+s2mca55@cscc2d78:~$ echo $X+$Y
+5+8
+s2mca55@cscc2d78:~$ echo "$X+$Y"
+5+8
+s2mca55@cscc2d78:~$ echo Sum= $(expr $X+$Y)
+Sum= 5+8
+s2mca55@cscc2d78:~$ echo Difference= $(expr $X-$Y)
+Difference= 5-8
+s2mca55@cscc2d78:~$ echo Product= $(expr $X*$Y)
+Product= 5*8
+s2mca55@cscc2d78:~$ echo "Sum= $(expr $X+$Y)"
+Sum= 5+8
+s2mca55@cscc2d78:~$ echo "Sum= $(expr $X + $Y)"
+Sum= 13
+s2mca55@cscc2d78:~$ echo Difference= $(expr $X - $Y)
+Difference= -3
+s2mca55@cscc2d78:~$ echo Product= $(expr $X * $Y)
+expr: syntax error
+Product=
+s2mca55@cscc2d78:~$ echo Product= $(expr $X \* $Y)
+Product= 40
+s2mca55@cscc2d78:~$ echo Quotient= $(expr $X / $Y)
+Quotient= 0
+s2mca55@cscc2d78:~$ echo Remainder= $(expr $X % $Y)
+Remainder= 5
+s2mca55@cscc2d78:~$ read S
+hello
+s2mca55@cscc2d78:~$ read p
+5
+s2mca55@cscc2d78:~$ read p
+2
+s2mca55@cscc2d78:~$ read l
+3
+s2mca55@cscc2d78:~$ echo Substring= $(expr substr $S $p $l)
+Substring= ell
+
