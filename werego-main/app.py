@@ -37,7 +37,7 @@ def contact_us():
         email = request.form['email']
         feedback = request.form['message']
         db = Db()
-        sql = db.insert("INSERT INTO contact_us (userName, Email, feedback_date, feedback) VALUES (%s, %s, NOW(), %s)", (name, email, feedback))
+        sql = db.insert("INSERT INTO contact_us (Name, Email, feedback_date, feedback) VALUES (%s, %s, NOW(), %s)", (name, email, feedback))
         return render_template('contact_us.html', message='Thank you for your feedback!')
     else:
         return render_template('contact_us.html')
@@ -62,7 +62,7 @@ def forgot_password():
         if not user:
             return "Sorry, we couldn't find an account associated with that email address.", 400
 
-         # Send email with passw    ord reset instructions or link
+         # Send email with password reset instructions or link
         password = user['password']
         sender_email = "a97298570@gmail.com"
         sender_password = "56B50C32C322385ED3009518610638823005"
@@ -330,7 +330,6 @@ def user_profile():
         email = request.form['email']
         password = request.form['password']
         confirm_password = request.form['confirm-password']
-        
         if password != confirm_password:
             return redirect(url_for('user_profile', error='Passwords do not match'))
         

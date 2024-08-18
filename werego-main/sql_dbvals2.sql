@@ -132,6 +132,8 @@ CREATE TABLE `login` (
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(50) DEFAULT NULL,
   `usertype` ENUM('admin', 'user') NOT NULL DEFAULT 'user',
+  `name` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`login_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
