@@ -1,0 +1,3 @@
+1. Dont have to put the final output to an object; just print as u get the value!
+2. for considering some consecutive elmnts only;use ''SLICE''-
+	eg: for geting elements from current pos to last in a list to avoid repetitn..
